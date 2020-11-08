@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row custom-wrapper">
+    <div class="col-md-12">
+      <!-- Form starts -->
+      <h4>Select Timber</h4>
+      <div class="group-gap">
+        <div class="d-block my-3">
+          <div class="mb-3">
+            <select [(ngModel)]="timberType">
+              <option value="">Choose Timber</option>
+              <option *ngFor="let timber of timberArray" [ngValue]="timber.id">{{timber.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <h4>Select Cross Section (mm * mm)</h4>
+      <div class="group-gap">
+        <div class="d-block my-3">
+          <div class="mb-3">
+            <select [(ngModel)]="timberCrossSection">
+              <option value="">Choose Cross Section </option>
+              <option *ngFor="let crossSection of timberCrossSectionArray" [ngValue]="crossSection.id">{{crossSection.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <h4>Select Length (m)</h4>
+      <div class="group-gap">
+        <div class="d-block my-3">
+          <div class="mb-3">
+            <select [(ngModel)]="timberLength">
+              <option [ngValue]="1">4.2 m and Below 4.2 m </option>
+              <option [ngValue]="2">4.2 m to 5.4 m</option>
+              <option [ngValue]="3">5.6 m and Above 5.6 m </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <h4>Enter Quantity</h4>
+      <div class="group-gap">
+        <div class="d-block my-3">
+          <div class="mb-3">
+            <input type="text" placeholder="Quantity"
+                   [(ngModel)]="quantity" required>
+          </div>
+        </div>
+      </div>
+
+      <h4> </h4>
+
+      <div class="group-gap">
+        <div class="d-block my-3">
+          <div class="mb-3">
+            <button class="uploadButton" (click)="calculatePrice()">CalculatePrice</button>
+          </div>
+        </div>
+      </div>
+
+      <h4>Total Price</h4>
+      <div class="group-gap">
+        <div class="d-block my-3">
+          <div class="mb-3">
+            {{priceInString}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
