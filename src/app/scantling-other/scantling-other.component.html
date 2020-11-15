@@ -2,10 +2,10 @@
 
   <div class="row custom-wrapper">
     <div class="col-md-12">
-      <h1>--------------  Scantling  ---------------</h1>
+      <h1>-------------  Scantling - Other  --------------</h1>
       <br>
       <!-- Form starts -->
-<!--      <h4>Select Timber</h4>-->
+      <!--      <h4>Select Timber</h4>-->
       <label >Select Timber</label>
       <div class="form-group">
         <div class="d-block my-3">
@@ -18,7 +18,7 @@
         </div>
       </div>
 
-<!--      <h4>Select Cross Section (mm * mm)</h4>-->
+      <!--      <h4>Select Cross Section (mm * mm)</h4>-->
       <label >Select Cross Section (mm * mm)</label>
       <div class="form-group">
         <div class="d-block my-3">
@@ -37,9 +37,8 @@
         <div class="d-block my-3">
           <div class="mb-3">
             <select [(ngModel)]="timberLength">
-              <option [ngValue]="1">4.2 m and Below 4.2 m </option>
-              <option [ngValue]="2">4.2 m to 5.4 m</option>
-              <option [ngValue]="3">5.6 m and Above 5.6 m </option>
+              <option [ngValue]="1">Below 5.6 m </option>
+              <option [ngValue]="2">5.6 m and Above 5.6 m </option>
             </select>
           </div>
         </div>
@@ -50,7 +49,7 @@
         <div class="d-block my-3">
           <div class="mb-3">
             <input type="text" placeholder="Quantity"
-                   [(ngModel)]="quantity">
+                   [(ngModel)]="quantity" required>
           </div>
         </div>
       </div>
@@ -66,7 +65,7 @@
       </div>
 
       <br>
-<!--      <h4>Total Price</h4>-->
+      <!--      <h4>Total Price</h4>-->
       <div class="group-gap">
         <div class="d-block my-3">
           <label class="price-label">Price</label>
@@ -79,4 +78,6 @@
     </div>
   </div>
 </div>
+
+
 

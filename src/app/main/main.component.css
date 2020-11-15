@@ -1,8 +1,9 @@
 .container {
-  display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
+  position: relative;
+
 }
 
 .btn-group button {
@@ -28,4 +29,9 @@
 /* Add a background color on hover */
 .btn-group button:hover {
   background-color: #3e8e41;
+}
+
+.toolbar {
+  color: #af1200;
+  background-color: burlywood;
 }

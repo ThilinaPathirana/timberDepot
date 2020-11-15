@@ -2,14 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
-  selector: 'app-scatling',
-  templateUrl: './scatling.component.html',
-  styleUrls: ['./scatling.component.css']
+  selector: 'app-timber',
+  templateUrl: './timber.component.html',
+  styleUrls: ['./timber.component.css']
 })
-export class ScatlingComponent implements OnInit {
+export class TimberComponent implements OnInit {
+
   public userArray: User[] = [];
   public timberType = 1 ;    // 1= micro   2 = Tamarind
-  public columnIndex = this.timberType * 3;
+  public columnIndex = this.timberType * 2;
   public timberArray: Timber[] = [];
   public timberCrossSectionArray: Length [] = [];
   public timberCrossSection = 1;
@@ -19,7 +20,7 @@ export class ScatlingComponent implements OnInit {
   public priceInString: string;
   public timberLength = 1;
 
-  constructor(private http: HttpClient) {  this.http.get('assets/scantling.csv', {responseType: 'text'})
+  constructor(private http: HttpClient) {  this.http.get('assets/timber.csv', {responseType: 'text'})
     .subscribe(
       data => {
         const csvToRowArray = data.split('\n');
@@ -30,8 +31,8 @@ export class ScatlingComponent implements OnInit {
           this.timberCrossSectionArray.push(new Length(rw - 1 , lengthrow[0]));
         }
 
-        for (let col = 0; col < 15; col++) {
-          this.timberArray.push(new Timber((col + 1) , timberRow[(col * 3) + 1]));
+        for (let col = 0; col < 16; col++) {
+          this.timberArray.push(new Timber((col + 1) , timberRow[(col * 2) + 1]));
         }
         // for (let index = 2; index < csvToRowArray.length - 1; index++) {
         //   const row = csvToRowArray[index].split(',');
@@ -46,25 +47,22 @@ export class ScatlingComponent implements OnInit {
     );
   }
   calculatePrice() {
-    this.http.get('assets/scantling.csv', {responseType: 'text'})
+    this.http.get('assets/timber.csv', {responseType: 'text'})
       .subscribe(
         data => {
           const csvToRowArray = data.split('\n');
           this.userArray = [];
           for (let index = 2; index < csvToRowArray.length - 1; index++) {
             const row = csvToRowArray[index].split(',');
-            this.columnIndex = this.timberType * 3;
-            this.userArray.push(new User( parseFloat( row[this.columnIndex - 2]), parseFloat( row[this.columnIndex - 1]), parseFloat( row[this.columnIndex])));
+            this.columnIndex = this.timberType * 2;
+            this.userArray.push(new User( parseFloat( row[this.columnIndex - 1]), parseFloat( row[this.columnIndex])));
           }
 
           this.priceInString = 'Rs. ';
           if ( this.timberLength === 1) {
-            this.timberUnitPrice = this.userArray[this.timberCrossSection - 1 ].belowFourMeter;
+            this.timberUnitPrice = this.userArray[this.timberCrossSection - 1 ].belowFiveMeter;
             this.price = this.timberUnitPrice * this.quantity;
-          } else if (this.timberLength === 2) {
-            this.timberUnitPrice = this.userArray[this.timberCrossSection - 1 ].betweenForAndFiveMeter;
-            this.price = this.timberUnitPrice * this.quantity;
-          } else {
+          }  else {
             this.timberUnitPrice = this.userArray[this.timberCrossSection - 1 ].aboveFiveMeter;
             this.price = this.timberUnitPrice * this.quantity;
           }
@@ -83,13 +81,11 @@ export class ScatlingComponent implements OnInit {
 }
 
 export class User {
-  belowFourMeter: number;
-  betweenForAndFiveMeter: number;
+  belowFiveMeter: number;
   aboveFiveMeter: number;
 
-  constructor(belowFourMeter: number, betweenForAndFiveMeter: number, aboveFiveMeter: number) {
-    this.belowFourMeter = belowFourMeter;
-    this.betweenForAndFiveMeter = betweenForAndFiveMeter;
+  constructor(belowFiveMeter: number, aboveFiveMeter: number) {
+    this.belowFiveMeter = belowFiveMeter;
     this.aboveFiveMeter = aboveFiveMeter;
   }
 }
@@ -112,5 +108,5 @@ export class Length {
     this.id = id;
     this.name = name;
   }
-}
 
+}

@@ -1,0 +1,63 @@
+p {
+  font-family: Lato;
+  text-align: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  color: maroon;
+  background-color: beige;
+  height: 100%;
+  padding-top: 50px;
+}
+
+.center h1 {
+  color: #af1200;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px 1px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.button1 {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input[type=text], select, option {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.price {
+  font-size: 30px;
+  margin-left: 200px;
+  font-family: "Adobe Fan Heiti Std B";
+  color: blue;
+}
+
+.price-label {
+  font-size: 20px;
+  font-family: "Adobe Fan Heiti Std B";
+  color: blue;
+}

@@ -14,7 +14,15 @@ export class MainComponent implements OnInit {
   }
 
   navigateToScantling()  {
-    this.router.navigateByUrl('scantling');
+    this.router.navigateByUrl('timber/scantling');
+  }
+
+  navigateToTimber()  {
+    this.router.navigateByUrl('timber/planks');
+  }
+
+  navigateToScantlingOther()  {
+    this.router.navigateByUrl('timber/scantling-other');
   }
 
 }

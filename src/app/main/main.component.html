@@ -1,7 +1,52 @@
-<div class="container">
-  <div class="button-wrapper" class="btn-group">
-    <button class="Scantling" (click)="navigateToScantling()">Scantling</button>
+<mat-toolbar class="toolbar">
+  <span class="fill-remaining-space">
+    <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+    <span>
+<!--      <button mat-menu-item (click)="navigateToScantling()">-->
+<!--        <mat-icon>Scantling</mat-icon>-->
+<!--        <span>Scantling</span>-->
+<!--      </button>-->
+      <button mat-menu-item (click)="navigateToTimber()">
+        <mat-icon>Planks</mat-icon>
+        <span>Planks</span>
+      </button>
+      <button mat-menu-item [matMenuTriggerFor]="vertebrates">
+        <mat-icon>Scantling</mat-icon>
+        <span>Scantling</span>
+      </button>
+    </span>
+    </mat-menu>
 
-    <button class="Other">Otherrrr</button>
-  </div>
+    <mat-menu #vertebrates="matMenu" [overlapTrigger]="false">
+      <span>
+        <button mat-menu-item (click)="navigateToScantling()">
+            <mat-icon>Scantling</mat-icon>
+            <span>Scantling</span>
+        </button>
+        <button mat-menu-item (click)="navigateToScantlingOther()">
+            <mat-icon>Other</mat-icon>
+            <span>Other</span>
+        </button>
+      </span>
+    </mat-menu>
+  </span>
+  <span class="fill-remaining-space">Timber</span>
+</mat-toolbar>
+
+<!--<div class="container">-->
+<!--  <div class="button-wrapper" class="btn-group">-->
+<!--    <button class="Scantling" (click)="navigateToScantling()">Scantling</button>-->
+
+<!--    <button class="Other" (click)="navigateToTimber()">Timber</button>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="container">
+  <div ></div>
+  <router-outlet></router-outlet>
 </div>
+
+
